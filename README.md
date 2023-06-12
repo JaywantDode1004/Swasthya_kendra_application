@@ -130,6 +130,9 @@ Every person needs a diet that suits their body and lifestyle, and this personal
 **Medical Emergency**
 ![image](https://github.com/JaywantDode1004/Swasthya_kendra_application/assets/136264417/055a5f1e-0bd2-4e41-aafd-0dfa91ef2834)
 
+![image](https://github.com/JaywantDode1004/Swasthya_kendra_application/assets/136264417/105f9c9b-6b53-484c-9ab3-76700c222de5)
+
+
 **Calorie Calculator**
 ![image](https://github.com/JaywantDode1004/Swasthya_kendra_application/assets/136264417/aa552846-1918-4cda-8386-cbe538f4e643)
 
