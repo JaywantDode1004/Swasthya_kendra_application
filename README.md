@@ -55,12 +55,15 @@ The app has feature that track the changes and updates of the medical industry.
 Our application show all latest news realated to diseases and their preventions.
 
 4️⃣ **Calorie Calculator**
+
 A calorie calculator will help you estimate the number of calories you need for daily maintenance, weight loss, or weight gain by considering your age, sex, height, weight, and activity level. Counting calories is a key component of self-monitoring and allows you to track your behaviors and progress in order to meet your health and fitness goals.
 
 4️⃣ **Medical Emergency**
+
 The medical emergency system is a web-based application that allows users to input and store the details of a patient in a form. The form collects information such as the patient's name, contact number, address, and a brief description of the emergency situation.
 
 4️⃣ **Medicine Remainder**
+
 A medicine reminder system with an alarm feature is designed to help individuals keep track of their medication schedule and ensure timely intake of prescribed medicines. It typically involves an application or tool that allows users to set reminders for taking medication at specified times.
 
 5️⃣ **Scheduling Appointments**:
