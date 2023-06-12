@@ -54,6 +54,15 @@ App allows patient communication with each other which help in enhancing healthy
 The app has feature that track the changes and updates of the medical industry.
 Our application show all latest news realated to diseases and their preventions.
 
+4️⃣ **Calorie Calculator**
+A calorie calculator will help you estimate the number of calories you need for daily maintenance, weight loss, or weight gain by considering your age, sex, height, weight, and activity level. Counting calories is a key component of self-monitoring and allows you to track your behaviors and progress in order to meet your health and fitness goals.
+
+4️⃣ **Medical Emergency**
+The medical emergency system is a web-based application that allows users to input and store the details of a patient in a form. The form collects information such as the patient's name, contact number, address, and a brief description of the emergency situation.
+
+4️⃣ **Medicine Remainder**
+A medicine reminder system with an alarm feature is designed to help individuals keep track of their medication schedule and ensure timely intake of prescribed medicines. It typically involves an application or tool that allows users to set reminders for taking medication at specified times.
+
 5️⃣ **Scheduling Appointments**:
 
 This feature keep track of appointments is an added pressure for doctors, so digitally marking appointments with reminders can be a huge helping hand for the doctors.
@@ -62,9 +71,7 @@ This feature keep track of appointments is an added pressure for doctors, so dig
 
 The location of nearby hospitals will be a huge help for patients in dire need of medical attention.
 
-7️⃣ **Trip** 
 
-using this feature,users registered on CareBuddy application can plan a trip and together can enjoy a trip.
 
 8️⃣  **Newsletter**:
 
@@ -142,6 +149,11 @@ Every person needs a diet that suits their body and lifestyle, and this personal
 
 **Care**
 ![image](https://github.com/JaywantDode1004/Swasthya_kendra_application/assets/136264417/55059f99-31a2-4553-a0b4-eb099655a867)
+
+**Medicine Remainder**
+![image](https://github.com/JaywantDode1004/Swasthya_kendra_application/assets/136264417/63d19c36-6b6c-453b-9ca2-777e02525336)
+
+![image](https://github.com/JaywantDode1004/Swasthya_kendra_application/assets/136264417/ef3ee3a1-52ed-4a45-ace3-fa235d6cee5c)
 
 
 **Group Page**
