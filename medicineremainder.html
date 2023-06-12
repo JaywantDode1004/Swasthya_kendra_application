@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Medical Emergency</title>
+    <title>Medicine Remainder</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <script src="https://kit.fontawesome.com/56c759bb6e.js" crossorigin="anonymous"></script>
@@ -31,16 +31,69 @@
     <!-- =======================================================
   
   ======================================================== -->
- 
-
-
-
-
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .medicine-form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .medicine-form label,
+    .medicine-form input,
+    .medicine-form button {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .medicine-form button {
+      padding: 8px 12px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .medicine-list {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .medicine-item {
+      margin-bottom: 10px;
+    }
+    
+    .medicine-item span {
+      font-weight: bold;
+    }
+    
+    .medicine-item button {
+      padding: 4px 8px;
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
 </head>
-
 <body>
-
-
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
@@ -97,55 +150,28 @@
 
     <br><br>
 
-    <main><br/>
-       <div class="container">
-    <h1 class="mt-4 mb-4">Medical Emergency System</h1>
+  <main><br/>
+  <h1>Medicine Reminder System</h1>
 
-    <div class="form-group">
-      <label for="patientName">Patient Name:</label>
-      <input type="text" id="patientName" class="form-control" required>
-    </div>
+  <div class="medicine-form">
+    <label for="medicineName">Medicine Name:</label>
+    <input type="text" id="medicineName" required>
 
-    <div class="form-group">
-      <label for="age">Age:</label>
-      <input type="number" id="age" class="form-control" required>
-    </div>
+    <label for="dosagePerDay">Dosage per Day:</label>
+    <input type="number" id="dosagePerDay" required>
 
-    <div class="form-group">
-      <label for="contactNumber">Contact Number:</label>
-      <input type="tel" id="contactNumber" class="form-control" required>
-    </div>
+    <label for="schedule">Schedule:</label>
+    <input type="time" id="schedule" required>
 
-    <div class="form-group">
-      <label for="symptoms">Symptoms:</label>
-      <textarea id="symptoms" class="form-control" rows="4" required></textarea>
-    </div>
-
-    <div class="form-group">
-      <label for="City">City:</label>
-      <input type="text" id="City" class="form-control" required>
-    </div>
-
-    <div class="form-group">
-      <label for="Area">Area:</label>
-      <input type="text" id="Area" class="form-control" required>
-    </div>
-
-    <div class="form-group">
-      <label for="pincode">Pin Code Number:</label>
-      <input type="number" id="pincode" class="form-control" required>
-    </div>
-
-    <button onclick="handleMedicalEmergency()" class="btn btn-primary">Report Emergency</button>
+    <button onclick="addMedicine()">Add Medicine</button>
   </div>
 
- 
-        
-    </main>
+  <div class="medicine-list" id="medicineList">
+    <h3>Medicine List</h3>
+  </div>
+</main>
 
-
-
-    <!-- ======= Footer ======= -->
+<!-- ======= Footer ======= -->
     <footer id="footer">
 
         <div class="footer-top">
@@ -211,56 +237,68 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+  <audio id="alarmSound" src="assets/audio/alarm.mp3" preload="auto"></audio>
+
   <script>
-    function handleMedicalEmergency() {
-      var patientName = document.getElementById("patientName").value;
-      var age = document.getElementById("age").value;
-      var contactNumber = document.getElementById("contactNumber").value;
-      var symptoms = document.getElementById("symptoms").value;
-      var City = document.getElementById("City").value;
-      var Area= document.getElementById("Area").value;
-      var pincode=document.getElementById("pincode").value;
+    function addMedicine() {
+      var medicineName = document.getElementById("medicineName").value;
+      var dosagePerDay = document.getElementById("dosagePerDay").value;
+      var schedule = document.getElementById("schedule").value;
 
-      callEmergencyServices();
-      notifyHealthcareProvider(patientName, age, contactNumber, symptoms , City,Area,pincode);
-      provideInitialCareInstructions();
-      logEmergencyDetails(patientName, age, contactNumber, symptoms, City,Area,pincode);
+      var medicineItem = document.createElement("div");
+      medicineItem.classList.add("medicine-item");
+
+      var medicineDetails = document.createElement("span");
+      medicineDetails.innerHTML = "<strong>" + medicineName + "</strong> - Dosage per Day: " + dosagePerDay + ", Schedule: " + schedule;
+      medicineItem.appendChild(medicineDetails);
+
+      var removeButton = document.createElement("button");
+      removeButton.innerHTML = "Remove";
+      removeButton.onclick = function() {
+        medicineItem.remove();
+      };
+      medicineItem.appendChild(removeButton);
+
+      document.getElementById("medicineList").appendChild(medicineItem);
+
+      // Reset the form fields
+      document.getElementById("medicineName").value = "";
+      document.getElementById("dosagePerDay").value = "";
+      document.getElementById("schedule").value = "";
+
+      // Set alarm for the schedule
+      setAlarm(medicineName, dosagePerDay, schedule);
     }
 
-    function callEmergencyServices() {
-      console.log("Emergency services have been called.");
+    function setAlarm(medicineName, dosagePerDay, schedule) {
+      var now = new Date();
+      var [hours, minutes] = schedule.split(":");
+      var alarmTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes);
+
+      if (alarmTime <= now) {
+        // If the specified time has already passed for today, set the alarm for the next day
+        alarmTime.setDate(alarmTime.getDate() + 1);
+      }
+
+      var timeDifference = alarmTime - now;
+      setTimeout(function() {
+        showAlarmNotification(medicineName, dosagePerDay);
+        playAlarmSound();
+      }, timeDifference);
     }
 
-    function notifyHealthcareProvider(patientName, age, contactNumber, symptoms, City,Area,pincode) {
-      var notificationMessage = "Medical Emergency\n\n" +
-        "Patient Name: " + patientName + "\n" +
-        "Age: " + age + "\n" +
-        "Contact Number: " + contactNumber + "\n" +
-        "Symptoms: " + symptoms + "\n" +
-        "City: " + City + "\n" +
-        "Area: " + Area + "\n" +
-        "pincode: " + pincode;
+    function showAlarmNotification(medicineName, dosagePerDay) {
+      var notificationMessage = "It's time to take " + dosagePerDay + " dose(s) of " + medicineName;
       alert(notificationMessage);
     }
 
-    function provideInitialCareInstructions() {
-      console.log("Providing initial care instructions to the patient.");
-    }
-
-    function logEmergencyDetails(patientName, age, contactNumber, symptoms) {
-      console.log("Logging emergency details:");
-      console.log("Patient Name: " + patientName);
-      console.log("Age: " + age);
-      console.log("Contact Number: " + contactNumber);
-      console.log("Symptoms: " + symptoms);
-      console.log("City: " + City);
-      console.log("Area: " + Area);
-      console.log("pincode: " + pincode);
+    function playAlarmSound() {
+      var alarmSound = document.getElementById("alarmSound");
+      alarmSound.play();
     }
   </script>
-    
 </body>
-
 </html>
